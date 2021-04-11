@@ -1,0 +1,95 @@
+{% extends "Base.html" %}
+
+		
+			
+			{% block content %}
+			<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" >
+				<h6>Dashboard</h6>
+				
+				<hr>
+							
+					
+				
+			
+				<h3>Blog Overview</h3>
+				<hr>
+					<div class="row">
+						  <div class="col-sm-6">
+							<div class="card">
+							  <div class="card-body">
+								<h5 class="card-title">Posts</h5>
+								<p class="card-text">10 new posts</p>
+								<a href="#" class="btn btn-primary">Total:1278</a>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-6">
+							<div class="card">
+							  <div class="card-body">
+								<h5 class="card-title">Pages</h5>
+								<p class="card-text">4 new pages</p>
+								<a href="#" class="btn btn-primary">Total:234</a>
+							  </div>
+							</div>
+						  </div>
+						</div>
+
+						<div class="row">
+						  <div class="col-sm-6">
+							<div class="card">
+							  <div class="card-body">
+								<h5 class="card-title">Comments</h5>
+								<p class="card-text">45 new comments</p>
+								<a href="#" class="btn btn-primary">Total:1276</a>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-sm-6">
+							<div class="card">
+							  <div class="card-body">
+								<h5 class="card-title">Subscribers</h5>
+								<p class="card-text">98 new Subscribers</p>
+								<a href="#" class="btn btn-primary">Total:52187</a>
+							  </div>
+							</div>
+						  </div>
+						</div>
+			
+					<h3>Users BY devices</h3>
+					<div id="piechart"></div>
+					
+					
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+					<script type="text/javascript">
+					// Load google charts
+					google.charts.load('current', {'packages':['corechart']});
+					google.charts.setOnLoadCallback(drawChart);
+
+					// Draw the chart and set the chart values
+					function drawChart() {
+					  var data = google.visualization.arrayToDataTable([
+					  ['Device type', 'User'],
+					  ['Phone', 7828],
+					  ['Desktop', 8232],
+					  ['Tablet', 4823],
+					  
+					 ]);
+
+					  // Optional; add a title and set the width and height of the chart
+					  var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+					  // Display the chart inside the <div> element with id="piechart"
+					  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+					  chart.draw(data, options);
+					}
+					</script>
+					
+					
+			</main>
+  
+  
+  
+	  </div>
+	  {% endblock %}
+	 
